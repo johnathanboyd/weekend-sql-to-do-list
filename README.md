@@ -1,6 +1,25 @@
 # Weekend To-Do List
 
+## Step 1: setting up
 
+- [ ] npm init --y
+- [ ] npm install express
+- [ ] npm install pg
+- [ ] set up folders:
+    - [ ] /server
+        - [ ] /modules
+            - [ ] /routes
+        - [ ] /public
+            - [ ] /scripts
+            - [ ] /styles
+            - [ ] /vendors
+- [ ] move jQuery => /vendors
+- [ ] create index.html => /public
+- [ ] create client.js => /scripts
+- [ ] create server.js => /server
+
+## Step 2: spin up server
+*** in server.js ***
 
 ## Description
 
