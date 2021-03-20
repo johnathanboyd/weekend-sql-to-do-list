@@ -1,4 +1,3 @@
-const { put } = require("../../modules/routes/taskList_route");
 
 $( document ).ready ( onReady );
 
@@ -7,7 +6,7 @@ function onReady(){
 // click handlers
     $( '#submitButton' ).on( 'click', addTask);
     $( '#listOut' ).on('click', '#delete', deleteTask )
-    $( '#listOut' ).on('click', '#completeCheck', markComplete)
+    $( '#listOut' ).on('click', '.completeCheck', markComplete)
 // initializer
     getTaskList();
 }// end on ready
@@ -52,8 +51,17 @@ function deleteTask(){
         for( let i=0; i < response.length; i++){
             // INSERT APPEND FOR COMPLETE HERE???
             el.append(`
-                <li><input type="checkbox" id="completeCheck"> ${response[i].task} <button id="delete">delete</button> </li>  `)
-        }
+                 <li id='listItem'>
+                    ${response[i].task} 
+                    <button data-id="${response[i].id}" class="completeCheck">task complete</button> 
+                    <button data-id="${response[i].id}" class="delete">delete</button> 
+                </li>  `)
+            if(response[i].complete === 'true'){
+                $( '#listItem' ).addClass('doneTask')
+            } else {
+                $( '#listItem' ).removeClass('doneTask')
+            }
+        }// end for
     }).catch( function( err ){
         console.log( err );
         alert( 'problem!'); 

@@ -34,7 +34,7 @@ router.post('/', (req, res)=>{
 
 // put here
 router.put( '/:id', ( req, res )=>{
-    console.log( 'taskList_route PUT:' req.params );
+  
     let queryString = `UPDATE "to-doList" SET "complete"=true WHERE "id"=$1`;
     pool.query( queryString, [req.params.id ]).then( ( results )=>{
         res.sendStatus( 200 );
