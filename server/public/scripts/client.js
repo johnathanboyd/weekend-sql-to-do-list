@@ -44,7 +44,11 @@ function addTask(){
         el.empty();
         for( let i=0; i < response.length; i++){
             // INSERT APPEND FOR COMPLETE HERE???
-            el.append(`<li> ${response[i].task}</li>`)
+            el.append(`
+                <li><input type="checkbox" id="completeCheck"> –${response[i].task} <button id="delete">DELETE</button> </li>  `)
         }
-    })
- };// end getTaskList
+    }).catch( function( err ){
+        console.log( err );
+        alert( 'problem!'); 
+    })// end ajax
+ };// end getTaskList 
