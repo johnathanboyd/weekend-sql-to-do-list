@@ -5,6 +5,18 @@ const pool = require( '../pool');
 
 // routes with LOGIC
 
+// delete goes here
+router.delete( '/:id', (req, res )=>{
+    console.log( 'taskList_route DELETE:', req.params );
+    let queryString = `DELETE FROM "to-doList" WHERE "id"=$1`;
+    pool.query( queryString, [req.params.id ] ).then( ( results) =>{
+        res.sendStatus( 200 );
+    }).catch( ( err )=>{
+        console.log( err );
+        res.sendStatus( 500 );
+    })
+})// end Delete
+
 // get here
 router.get( '/', (req, res)=> {
     console.log( 'taskList_route GET' );

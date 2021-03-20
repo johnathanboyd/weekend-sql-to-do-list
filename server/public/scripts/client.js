@@ -34,9 +34,19 @@ function addTask(){
 } // end addTask 
 
 function deleteTask(){
-   console.log( 'in deleteTask')
-
-}
+    const myId = $( this ).data( 'id' );
+    console.log( 'in deleteTask');
+   $.ajax({
+       method: 'DELETE',
+       url: '/tasks/' + myId
+   }).then( function( response ){
+       console.log( 'back from delete with:', response);
+       getTaskList();
+   }).catch( function( err ){
+       console.log( err );
+       alert( 'sike' );
+   })
+}// end deleteTask
 
  function getTaskList(){
     console.log( 'getting task list' );
