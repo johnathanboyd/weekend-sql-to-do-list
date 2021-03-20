@@ -1,10 +1,13 @@
+const { put } = require("../../modules/routes/taskList_route");
+
 $( document ).ready ( onReady );
 
 function onReady(){
     console.log( 'jQ' );
 // click handlers
     $( '#submitButton' ).on( 'click', addTask);
-
+    $( '#listOut' ).on('click', '#delete', deleteTask )
+    $( '#listOut' ).on('click', '#completeCheck', markComplete)
 // initializer
     getTaskList();
 }// end on ready
@@ -31,6 +34,10 @@ function addTask(){
     $( '#taskIn').val( '' );
 } // end addTask 
 
+function deleteTask(){
+    console.log( 'in deleteTask')
+}
+
  function getTaskList(){
     console.log( 'getting task list' );
     // call that ajax!
@@ -45,10 +52,26 @@ function addTask(){
         for( let i=0; i < response.length; i++){
             // INSERT APPEND FOR COMPLETE HERE???
             el.append(`
-                <li><input type="checkbox" id="completeCheck"> –${response[i].task} <button id="delete">DELETE</button> </li>  `)
+                <li><input type="checkbox" id="completeCheck"> ${response[i].task} <button id="delete">delete</button> </li>  `)
         }
     }).catch( function( err ){
         console.log( err );
         alert( 'problem!'); 
     })// end ajax
  };// end getTaskList 
+
+ function markComplete(){
+     const myId = $( this ).data( 'id' );
+     console.log( 'in markComplete', myId );
+     // ajax cal of type PUT to update db
+     $.ajax({
+         method: 'PUT',
+         url: '/tasks/' + myId
+     }).then( function( response ){
+         console.log('back from PUT', response );
+         getTaskList();
+     }).catch( function ( err ){
+        console.log( err );
+        alert( 'nope' );
+     })// end ajax
+ } // end markComplete

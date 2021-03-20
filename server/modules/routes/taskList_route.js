@@ -10,7 +10,7 @@ router.get( '/', (req, res)=> {
     console.log( 'taskList_route GET' );
     let queryString = `SELECT * FROM "to-doList"`;
     pool.query( queryString ).then( ( result )=>{
-        res.send( resultrows );
+        res.send( result.rows );
     }).catch( ( err)=> {
         console.log( err );
         res.sendStatus( 500 );
@@ -31,6 +31,18 @@ router.post('/', (req, res)=>{
         res.sendStatus( 500 );
     })
 }) // end POST
+
+// put here
+router.put( '/:id', ( req, res )=>{
+    console.log( 'taskList_route PUT:' req.params );
+    let queryString = `UPDATE "to-doList" SET "complete"=true WHERE "id"=$1`;
+    pool.query( queryString, [req.params.id ]).then( ( results )=>{
+        res.sendStatus( 200 );
+    }).catch( ( err )=>{
+        console.log( err );
+        res.sendStatus( 500 );
+    })
+})
 
 
 module.exports = router
