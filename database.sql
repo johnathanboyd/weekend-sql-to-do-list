@@ -1,10 +1,9 @@
 -- db name tasks ---
 
-CREATE TABLE "tasks"(
+CREATE TABLE "to-doList"(
     "id" serial primary key,
-    "title" varchar(50),
-    "description" varchar(250)
+    "task" varchar(150),
 );
 
-INSERT INTO "tasks" ( title, description ) VAlUES ();
+INSERT INTO "to-doList" ( task ) VAlUES ();
 SELECT * from "tasks";

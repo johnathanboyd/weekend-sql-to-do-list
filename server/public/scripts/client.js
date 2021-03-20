@@ -13,8 +13,7 @@ function addTask(){
     console.log( 'in add Task' );
     // wrap user input into an object 
     let objectToSend = {
-        title: $( '#taskIn').val(),
-        description: $('#descriptionIn').val()
+        task: $( '#taskIn').val(),
     }
     // send object to server via ajax POST method
     $.ajax({
@@ -29,6 +28,7 @@ function addTask(){
         alert( 'error adding item to db');
         console.log( err );
     })// end ajax GOTO taskList_route
+    $( '#taskIn').val( '' );
 } // end addTask 
 
  function getTaskList(){
@@ -40,16 +40,11 @@ function addTask(){
     }).then( function( response ){
         // sending the list to the DOM
         console.log( 'back from GET:', response)
-        let el = $( '#listOutput');
+        let el = $( '#listOut');
         el.empty();
         for( let i=0; i < response.length; i++){
             // INSERT APPEND FOR COMPLETE HERE???
-            el.append(`<table>
-                <tr>
-                    <td>${ response[i].title }:</td>
-                    <td>${response[i].description}</td>
-                </tr>
-            </table>`)
+            el.append(`<li> ${response[i].task}</li>`)
         }
     })
  };// end getTaskList

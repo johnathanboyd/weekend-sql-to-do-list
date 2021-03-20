@@ -2,7 +2,7 @@
 const pg = require ( 'pg' );
 // config for our db connection
 const pool = new pg.Pool({
-    database: "tasks",
+    database: "weekend_to-do_app",
     host: "localhost", 
     port: 5432,
     max: 12,

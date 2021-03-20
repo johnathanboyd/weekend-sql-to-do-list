@@ -10,7 +10,7 @@ router.post('/', (req, res)=>{
     console.log( 'taskList_route:', req.body );
     // add this item to the DB 'tasks'
     // create query string using SQL syntax!!
-    let queryString = `INSERT INTO "tasks" ( title, description ) VALUES ($1, $2)`;
+    let queryString = `INSERT INTO "to-doList" ( "task" ) VALUES ( $1 )`;
     // ask pool to run query
     pool.query( queryString, [req.body.title, req.body.description] ).then (( results )=>{
         // if successful send 200
