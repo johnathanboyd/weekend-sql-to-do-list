@@ -44,10 +44,14 @@
 creating full stack communication communication
 follow crud pls
 CREATE:
-    -[] create function in client w/ ajax POST method
-    -[] in router, create router.post (skip server.js middle man, skip pool.js)
-        - [] run query by using pool 
-
+    -[X] create function in client w/ ajax POST method
+    -[X] in router, create router.post (skip server.js middle man, skip pool.js)
+        - [X] run query by using pool 
+    -[ ] clear inputs on DOM pls
+READ: 
+    -[ ] in the client make a function that call for info to come from db  
+    -[ ] make a response as a GET route to fulfill request from db
+        -[ ] run query by using pool..?
 ## Description
 
 Your project description goes here. What problem did you solve? How did you solve it?
