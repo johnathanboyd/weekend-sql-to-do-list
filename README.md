@@ -2,9 +2,9 @@
 
 ## Step 1: setting up
 
-- [ ] npm init --y
-- [ ] npm install express
-- [ ] npm install pg
+- [X] npm init --y
+- [X] npm install express
+- [X] npm install pg
 - [ ] set up folders:
     - [ ] /server
         - [ ] /modules
