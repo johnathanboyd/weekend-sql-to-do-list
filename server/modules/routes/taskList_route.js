@@ -15,10 +15,10 @@ router.post('/', (req, res)=>{
     pool.query( queryString, [req.body.title, req.body.description] ).then (( results )=>{
         // if successful send 200
         res.sendStatus( 200 );
-    }).catch ( err )=>{
+    }).catch( ( err )=>{
         console.log( err );
         res.sendStatus( 500 );
-    }
+    })
 }) // end POST
 
 
