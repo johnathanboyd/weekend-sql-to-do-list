@@ -5,7 +5,7 @@ function onReady(){
     console.log( 'jQ' );
 // click handlers
     $( '#submitButton' ).on( 'click', addTask);
-    $( '#listOut' ).on('click', '#delete', deleteTask )
+    $( '#listOut' ).on('click', '.delete', deleteTask )
     $( '#listOut' ).on('click', '.completeCheck', markComplete)
 // initializer
     getTaskList();
@@ -34,7 +34,8 @@ function addTask(){
 } // end addTask 
 
 function deleteTask(){
-    console.log( 'in deleteTask')
+   console.log( 'in deleteTask')
+
 }
 
  function getTaskList(){
@@ -50,17 +51,17 @@ function deleteTask(){
         el.empty();
         for( let i=0; i < response.length; i++){
             // INSERT APPEND FOR COMPLETE HERE???
+            let completedTask = `${response[i].task}`;
+            if( response[i].complete === true ){
+               completedTask = `<s>${response[i].task}</s>` 
+            }
             el.append(`
                  <li id='listItem'>
-                    ${response[i].task} 
+                    ${completedTask}
                     <button data-id="${response[i].id}" class="completeCheck">task complete</button> 
                     <button data-id="${response[i].id}" class="delete">delete</button> 
                 </li>  `)
-            if(response[i].complete === 'true'){
-                $( '#listItem' ).addClass('doneTask')
-            } else {
-                $( '#listItem' ).removeClass('doneTask')
-            }
+    
         }// end for
     }).catch( function( err ){
         console.log( err );
