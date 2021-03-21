@@ -68,9 +68,11 @@ function deleteTask(){
             el.append(`
                  <li id='listItem'>
                     ${completedTask}
-                    <button data-id="${response[i].id}" class="completeCheck">task complete</button> 
-                    <button data-id="${response[i].id}" class="delete">delete</button> 
-                </li>  `)
+                    <div class="buttons">
+                        <button data-id="${response[i].id}" class="completeCheck">task complete</button> 
+                        <button data-id="${response[i].id}" class="delete">X</button> 
+                    </div>
+                    </li>  `)
     
         }// end for
     }).catch( function( err ){
