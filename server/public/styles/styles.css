@@ -1,3 +1,65 @@
 .strike{ 
     text-decoration: line-through;
+    background-color: greenyellow;
+}
+.title {
+    border-radius: 1em;
+    margin-left: 2em;
+    margin-right: 2em;
+    margin-bottom: 1em;
+
+    border: solid;
+    border-color: #D7DDBA;
+    background-color: #D7DDBA;
+}
+h1 {
+    margin-left: 1em;
+    margin-right: 1em;
+    margin-bottom: 1em;
+    padding: 10px;
+    text-align: center;
+    background-color: #F5F3EB;
+    border-radius: .5em;
+
+}
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: #34494E;
+    background-color: #C2C272;
+}
+
+#listOutput {
+    margin: 1em;
+    background-color: #F5F3EB;
+    padding-bottom: 15em;
+    padding-top: 10px;
+    padding-right: 2em;
+    padding-left: 2em;
+    border-radius: 30px;
+    border-left: dashed;
+}
+
+#taskInput {
+    display: flex;
+}
+
+#taskIn {
+    margin-left: 1em;
+    padding: .5em;
+    padding-left: 2em;
+    padding-right: 2em;
+    border-bottom-left-radius: 1em;
+    border-top-left-radius: 1em;
+    border: none;
+}
+
+#submitButton {
+    color: white;
+    padding: .5em;
+    padding-left: 2em;
+    padding-right: 2em;
+    border-bottom-right-radius: 1em;
+    border-top-right-radius: 1em;
+    border: none;
+    background-color: #C94F28;
 }
