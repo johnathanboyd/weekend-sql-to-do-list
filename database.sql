@@ -7,4 +7,4 @@ CREATE TABLE "to-doList"(
 );
 
 INSERT INTO "to-doList" ( task ) VAlUES ();
-SELECT * from "tasks";
+SELECT * from "to-doList";
